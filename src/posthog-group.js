@@ -33,7 +33,7 @@ PostHogGroup.prototype._init = function(posthog_instance, group_key, group_id) {
  *
  * @param {Object|String} prop If a string, this is the name of the property. If an object, this is an associative array of names and values.
  * @param {*} [to] A value to set on the given property name
- * @param {Function} [callback] If provided, the callback will be called after the captureing event
+ * @param {Function} [callback] If provided, the callback will be called after the capturing event
  */
 PostHogGroup.prototype.set = addOptOutCheckPostHogGroup(function(prop, to, callback) {
     var data = this.set_action(prop, to);
@@ -61,7 +61,7 @@ PostHogGroup.prototype.set = addOptOutCheckPostHogGroup(function(prop, to, callb
  *
  * @param {Object|String} prop If a string, this is the name of the property. If an object, this is an associative array of names and values.
  * @param {*} [to] A value to set on the given property name
- * @param {Function} [callback] If provided, the callback will be called after the captureing event
+ * @param {Function} [callback] If provided, the callback will be called after the capturing event
  */
 PostHogGroup.prototype.set_once = addOptOutCheckPostHogGroup(function(prop, to, callback) {
     var data = this.set_once_action(prop, to);
@@ -79,7 +79,7 @@ PostHogGroup.prototype.set_once = addOptOutCheckPostHogGroup(function(prop, to, 
  *     posthog.get_group('company', 'posthog').unset('Founded');
  *
  * @param {String} prop The name of the property.
- * @param {Function} [callback] If provided, the callback will be called after the captureing event
+ * @param {Function} [callback] If provided, the callback will be called after the capturing event
  */
 PostHogGroup.prototype.unset = addOptOutCheckPostHogGroup(function(prop, callback) {
     var data = this.unset_action(prop);
@@ -96,7 +96,7 @@ PostHogGroup.prototype.unset = addOptOutCheckPostHogGroup(function(prop, callbac
  *
  * @param {String} list_name Name of the property.
  * @param {Array} values Values to merge with the given property
- * @param {Function} [callback] If provided, the callback will be called after the captureing event
+ * @param {Function} [callback] If provided, the callback will be called after the capturing event
  */
 PostHogGroup.prototype.union = addOptOutCheckPostHogGroup(function(list_name, values, callback) {
     if (_.isObject(list_name)) {
@@ -126,7 +126,7 @@ PostHogGroup.prototype['delete'] = addOptOutCheckPostHogGroup(function(callback)
  *
  * @param {String} list_name Name of the property.
  * @param {Object} value Value to remove from the given group property
- * @param {Function} [callback] If provided, the callback will be called after the captureing event
+ * @param {Function} [callback] If provided, the callback will be called after the capturing event
  */
 PostHogGroup.prototype.remove = addOptOutCheckPostHogGroup(function(list_name, value, callback) {
     var data = this.remove_action(list_name, value);

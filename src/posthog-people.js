@@ -41,7 +41,7 @@ PostHogPeople.prototype._init = function(posthog_instance) {
 *
 * @param {Object|String} prop If a string, this is the name of the property. If an object, this is an associative array of names and values.
 * @param {*} [to] A value to set on the given property name
-* @param {Function} [callback] If provided, the callback will be called after captureing the event.
+* @param {Function} [callback] If provided, the callback will be called after capturing the event.
 */
 PostHogPeople.prototype.set = addOptOutCheckPostHogPeople(function(prop, to, callback) {
     var data = this.set_action(prop, to);
@@ -82,7 +82,7 @@ PostHogPeople.prototype.set = addOptOutCheckPostHogPeople(function(prop, to, cal
 *
 * @param {Object|String} prop If a string, this is the name of the property. If an object, this is an associative array of names and values.
 * @param {*} [to] A value to set on the given property name
-* @param {Function} [callback] If provided, the callback will be called after captureing the event.
+* @param {Function} [callback] If provided, the callback will be called after capturing the event.
 */
 PostHogPeople.prototype.set_once = addOptOutCheckPostHogPeople(function(prop, to, callback) {
     var data = this.set_once_action(prop, to);
@@ -103,7 +103,7 @@ PostHogPeople.prototype.set_once = addOptOutCheckPostHogPeople(function(prop, to
 *     posthog.people.unset(['gender', 'Company']);
 *
 * @param {Array|String} prop If a string, this is the name of the property. If an array, this is a list of property names.
-* @param {Function} [callback] If provided, the callback will be called after captureing the event.
+* @param {Function} [callback] If provided, the callback will be called after capturing the event.
 */
 PostHogPeople.prototype.unset = addOptOutCheckPostHogPeople(function(prop, callback) {
     var data = this.unset_action(prop);
@@ -133,7 +133,7 @@ PostHogPeople.prototype.unset = addOptOutCheckPostHogPeople(function(prop, callb
 *
 * @param {Object|String} prop If a string, this is the name of the property. If an object, this is an associative array of names and numeric values.
 * @param {Number} [by] An amount to increment the given property
-* @param {Function} [callback] If provided, the callback will be called after captureing the event.
+* @param {Function} [callback] If provided, the callback will be called after capturing the event.
 */
 PostHogPeople.prototype.increment = addOptOutCheckPostHogPeople(function(prop, by, callback) {
     var data = {};
@@ -180,7 +180,7 @@ PostHogPeople.prototype.increment = addOptOutCheckPostHogPeople(function(prop, b
 *
 * @param {Object|String} list_name If a string, this is the name of the property. If an object, this is an associative array of names and values.
 * @param {*} [value] value An item to append to the list
-* @param {Function} [callback] If provided, the callback will be called after captureing the event.
+* @param {Function} [callback] If provided, the callback will be called after capturing the event.
 */
 PostHogPeople.prototype.append = addOptOutCheckPostHogPeople(function(list_name, value, callback) {
     if (_.isObject(list_name)) {
@@ -199,7 +199,7 @@ PostHogPeople.prototype.append = addOptOutCheckPostHogPeople(function(list_name,
 *
 * @param {Object|String} list_name If a string, this is the name of the property. If an object, this is an associative array of names and values.
 * @param {*} [value] value Item to remove from the list
-* @param {Function} [callback] If provided, the callback will be called after captureing the event.
+* @param {Function} [callback] If provided, the callback will be called after capturing the event.
 */
 PostHogPeople.prototype.remove = addOptOutCheckPostHogPeople(function(list_name, value, callback) {
     if (_.isObject(list_name)) {
@@ -233,7 +233,7 @@ PostHogPeople.prototype.remove = addOptOutCheckPostHogPeople(function(list_name,
 *
 * @param {Object|String} list_name If a string, this is the name of the property. If an object, this is an associative array of names and values.
 * @param {*} [value] Value / values to merge with the given property
-* @param {Function} [callback] If provided, the callback will be called after captureing the event.
+* @param {Function} [callback] If provided, the callback will be called after capturing the event.
 */
 PostHogPeople.prototype.union = addOptOutCheckPostHogPeople(function(list_name, values, callback) {
     if (_.isObject(list_name)) {
@@ -284,7 +284,7 @@ PostHogPeople.prototype.capture_charge = addOptOutCheckPostHogPeople(function(am
 *
 *     posthog.people.clear_charges();
 *
-* @param {Function} [callback] If provided, the callback will be called after captureing the event.
+* @param {Function} [callback] If provided, the callback will be called after capturing the event.
 */
 PostHogPeople.prototype.clear_charges = function(callback) {
     return this.set('$transactions', [], callback);

@@ -906,7 +906,7 @@ _.UUID = (function() {
 
 // _.isBlockedUA()
 // This is to block various web spiders from executing our JS and
-// sending false captureing data
+// sending false capturing data
 _.isBlockedUA = function(ua) {
     if (/(google web preview|baiduspider|yandexbot|bingbot|googlebot|yahoo! slurp)/i.test(ua)) {
         return true;

@@ -45,7 +45,7 @@ DomCapture.prototype.capture = function(query, event_name, properties, user_call
             // in case the posthog servers don't get back to us in time
             window.setTimeout(that.capture_callback(user_callback, props, options, true), timeout);
 
-            // fire the captureing event
+            // fire the capturing event
             that.mp.capture(event_name, props, that.capture_callback(user_callback, props, options));
         });
     }, this);

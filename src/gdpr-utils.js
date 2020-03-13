@@ -18,7 +18,7 @@ import { _, window } from './utils';
  * @callback captureFunction
  * @param {String} event_name The name of the event. This can be anything the user does - 'Button Click', 'Sign Up', 'Item Purchased', etc.
  * @param {Object} [properties] A set of properties to include with the event you're sending. These describe the user who did the event or details about the event itself.
- * @param {Function} [callback] If provided, the callback function will be called after captureing the event.
+ * @param {Function} [callback] If provided, the callback function will be called after capturing the event.
  */
 
 /** Public **/
@@ -26,11 +26,11 @@ import { _, window } from './utils';
 var GDPR_DEFAULT_PERSISTENCE_PREFIX = '__ph_opt_in_out_';
 
 /**
- * Opt the user in to data captureing and cookies/localstorage for the given token
- * @param {string} token - PostHog project captureing token
+ * Opt the user in to data capturing and cookies/localstorage for the given token
+ * @param {string} token - PostHog project capturing token
  * @param {Object} [options]
- * @param {captureFunction} [options.capture] - function used for captureing a PostHog event to record the opt-in action
- * @param {string} [options.captureEventName] - event name to be used for captureing the opt-in action
+ * @param {captureFunction} [options.capture] - function used for capturing a PostHog event to record the opt-in action
+ * @param {string} [options.captureEventName] - event name to be used for capturing the opt-in action
  * @param {Object} [options.captureProperties] - set of properties to be captureed along with the opt-in action
  * @param {string} [options.persistenceType] Persistence mechanism used - cookie or localStorage
  * @param {string} [options.persistencePrefix=__ph_opt_in_out] - custom prefix to be used in the cookie/localstorage name
@@ -43,8 +43,8 @@ export function optIn(token, options) {
 }
 
 /**
- * Opt the user out of data captureing and cookies/localstorage for the given token
- * @param {string} token - PostHog project captureing token
+ * Opt the user out of data capturing and cookies/localstorage for the given token
+ * @param {string} token - PostHog project capturing token
  * @param {Object} [options]
  * @param {string} [options.persistenceType] Persistence mechanism used - cookie or localStorage
  * @param {string} [options.persistencePrefix=__ph_opt_in_out] - custom prefix to be used in the cookie/localstorage name
@@ -57,8 +57,8 @@ export function optOut(token, options) {
 }
 
 /**
- * Check whether the user has opted in to data captureing and cookies/localstorage for the given token
- * @param {string} token - PostHog project captureing token
+ * Check whether the user has opted in to data capturing and cookies/localstorage for the given token
+ * @param {string} token - PostHog project capturing token
  * @param {Object} [options]
  * @param {string} [options.persistenceType] Persistence mechanism used - cookie or localStorage
  * @param {string} [options.persistencePrefix=__ph_opt_in_out] - custom prefix to be used in the cookie/localstorage name
@@ -69,8 +69,8 @@ export function hasOptedIn(token, options) {
 }
 
 /**
- * Check whether the user has opted out of data captureing and cookies/localstorage for the given token
- * @param {string} token - PostHog project captureing token
+ * Check whether the user has opted out of data capturing and cookies/localstorage for the given token
+ * @param {string} token - PostHog project capturing token
  * @param {Object} [options]
  * @param {string} [options.persistenceType] Persistence mechanism used - cookie or localStorage
  * @param {string} [options.persistencePrefix=__ph_opt_in_out] - custom prefix to be used in the cookie/localstorage name
@@ -84,7 +84,7 @@ export function hasOptedOut(token, options) {
 }
 
 /**
- * Wrap a PostHogLib method with a check for whether the user is opted out of data captureing and cookies/localstorage for the given token
+ * Wrap a PostHogLib method with a check for whether the user is opted out of data capturing and cookies/localstorage for the given token
  * If the user has opted out, return early instead of executing the method.
  * If a callback argument was provided, execute it passing the 0 error code.
  * @param {function} method - wrapped method to be executed if the user has not opted out
@@ -97,7 +97,7 @@ export function addOptOutCheckPostHogLib(method) {
 }
 
 /**
- * Wrap a PostHogPeople method with a check for whether the user is opted out of data captureing and cookies/localstorage for the given token
+ * Wrap a PostHogPeople method with a check for whether the user is opted out of data capturing and cookies/localstorage for the given token
  * If the user has opted out, return early instead of executing the method.
  * If a callback argument was provided, execute it passing the 0 error code.
  * @param {function} method - wrapped method to be executed if the user has not opted out
@@ -110,7 +110,7 @@ export function addOptOutCheckPostHogPeople(method) {
 }
 
 /**
- * Wrap a PostHogGroup method with a check for whether the user is opted out of data captureing and cookies/localstorage for the given token
+ * Wrap a PostHogGroup method with a check for whether the user is opted out of data capturing and cookies/localstorage for the given token
  * If the user has opted out, return early instead of executing the method.
  * If a callback argument was provided, execute it passing the 0 error code.
  * @param {function} method - wrapped method to be executed if the user has not opted out
@@ -123,8 +123,8 @@ export function addOptOutCheckPostHogGroup(method) {
 }
 
 /**
- * Clear the user's opt in/out status of data captureing and cookies/localstorage for the given token
- * @param {string} token - PostHog project captureing token
+ * Clear the user's opt in/out status of data capturing and cookies/localstorage for the given token
+ * @param {string} token - PostHog project capturing token
  * @param {Object} [options]
  * @param {string} [options.persistenceType] Persistence mechanism used - cookie or localStorage
  * @param {string} [options.persistencePrefix=__ph_opt_in_out] - custom prefix to be used in the cookie/localstorage name
@@ -151,8 +151,8 @@ function _getStorage(options) {
 }
 
 /**
- * Get the name of the cookie that is used for the given opt type (captureing, cookie, etc.)
- * @param {string} token - PostHog project captureing token
+ * Get the name of the cookie that is used for the given opt type (capturing, cookie, etc.)
+ * @param {string} token - PostHog project capturing token
  * @param {Object} [options]
  * @param {string} [options.persistencePrefix=__ph_opt_in_out] - custom prefix to be used in the cookie/localstorage name
  * @returns {string} the name of the cookie for the given opt type
@@ -163,8 +163,8 @@ function _getStorageKey(token, options) {
 }
 
 /**
- * Get the value of the cookie that is used for the given opt type (captureing, cookie, etc.)
- * @param {string} token - PostHog project captureing token
+ * Get the value of the cookie that is used for the given opt type (capturing, cookie, etc.)
+ * @param {string} token - PostHog project capturing token
  * @param {Object} [options]
  * @param {string} [options.persistencePrefix=__ph_opt_in_out] - custom prefix to be used in the cookie/localstorage name
  * @returns {string} the value of the cookie for the given opt type
@@ -200,10 +200,10 @@ function _hasDoNotCaptureFlagOn(options) {
 /**
  * Set cookie/localstorage for the user indicating that they are opted in or out for the given opt type
  * @param {boolean} optValue - whether to opt the user in or out for the given opt type
- * @param {string} token - PostHog project captureing token
+ * @param {string} token - PostHog project capturing token
  * @param {Object} [options]
- * @param {captureFunction} [options.capture] - function used for captureing a PostHog event to record the opt-in action
- * @param {string} [options.captureEventName] - event name to be used for captureing the opt-in action
+ * @param {captureFunction} [options.capture] - function used for capturing a PostHog event to record the opt-in action
+ * @param {string} [options.captureEventName] - event name to be used for capturing the opt-in action
  * @param {Object} [options.captureProperties] - set of properties to be captureed along with the opt-in action
  * @param {string} [options.persistencePrefix=__ph_opt_in_out] - custom prefix to be used in the cookie/localstorage name
  * @param {Number} [options.cookieExpiration] - number of days until the opt-in cookie expires
@@ -232,7 +232,7 @@ function _optInOut(optValue, token, options) {
 }
 
 /**
- * Wrap a method with a check for whether the user is opted out of data captureing and cookies/localstorage for the given token
+ * Wrap a method with a check for whether the user is opted out of data capturing and cookies/localstorage for the given token
  * If the user has opted out, return early instead of executing the method.
  * If a callback argument was provided, execute it passing the 0 error code.
  * @param {function} method - wrapped method to be executed if the user has not opted out
@@ -245,8 +245,8 @@ function _addOptOutCheck(method, getConfigValue) {
 
         try {
             var token = getConfigValue.call(this, 'token');
-            var persistenceType = getConfigValue.call(this, 'opt_out_captureing_persistence_type');
-            var persistencePrefix = getConfigValue.call(this, 'opt_out_captureing_cookie_prefix');
+            var persistenceType = getConfigValue.call(this, 'opt_out_capturing_persistence_type');
+            var persistencePrefix = getConfigValue.call(this, 'opt_out_capturing_cookie_prefix');
             var win = getConfigValue.call(this, 'window'); // used to override window during browser tests
 
             if (token) { // if there was an issue getting the token, continue method execution as normal
@@ -257,7 +257,7 @@ function _addOptOutCheck(method, getConfigValue) {
                 });
             }
         } catch(err) {
-            console.error('Unexpected error when checking captureing opt-out status: ' + err);
+            console.error('Unexpected error when checking capturing opt-out status: ' + err);
         }
 
         if (!optedOut) {

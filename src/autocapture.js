@@ -150,7 +150,7 @@ var autocapture = {
                     href = shouldCaptureEl && shouldCaptureValue(href) && href;
                 }
 
-                // allow users to programatically prevent captureing of elements by adding class 'ph-no-capture'
+                // allow users to programatically prevent capturing of elements by adding class 'ph-no-capture'
                 var classes = getClassName(el).split(' ');
                 if (_.includes(classes, 'ph-no-capture')) {
                     explicitNoCapture = true;
